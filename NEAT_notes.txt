@@ -1,0 +1,48 @@
+Steps in NEAT neural network
+https://www.youtube.com/watch?v=H4WnRLEG73Q
+
+
+SELECTION
+1) Each genome plays galaga
+2) Each genome is assigned a fitness score based on performance
+3) Cull lowest scoring half of the genomes
+4) Top half of the genomes are ranked in order of fitness
+5) Best genome is flagged
+
+REPLICATION
+ -- Repopulate next generation with genomes --
+6) Copy champion of previous generation
+7) Clone (X% of genomes for next generation)
+	a) Use distribution to choose a survivor, randomly
+8) Crossover (Y% of genomes for next generation)
+	a) Choose two random genomes to mate using same sampling technique
+	b) Categories for crossing over genes in the genomes
+		i) Matching (same innovation number)
+		ii) Disjoint (One parent genes falls within innovation range of another parent
+		iii) Excess (Gene outside the innovation range of the other parent)
+
+MUTATION (Loop through all genomes)
+9) Weight mutations
+	a) Iterate through every gene for a given genome
+		i) P(Change gene weight) = .80
+			- P(Adjust current weight) = .9
+			- P(New random weight) = .1
+	b) Enable/disable a gene
+10) Structural mutations
+	a) P(adding gene between neurons) = .05
+	b) P(adding node) = .03
+
+SPECIATION
+11) Check if newly mutated genome is no longer compatible with current species
+	a) Reassign or create new species
+12) Population control
+	a) Distribute genome population across species
+13) Culling species
+	a) Stagnation: Cannot converge after n generations
+	b) Extinction: Population is too low to survive
+		
+Questions: Adding a node?
+
+Terms
+Genes: Neurons
+Innovation Numbers: historical origin representing structure
